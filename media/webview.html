@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; 
+        img-src ${webview.cspSource} https:; 
+        script-src ${webview.cspSource} 'unsafe-inline' 'unsafe-eval' https://unpkg.com; 
+        style-src ${webview.cspSource} 'unsafe-inline';">
+    <script nonce="${nonce}" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script nonce="${nonce}" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- STYLES -->
+</head>
+<body>
+    <div id="root"></div>
+    <!-- SCRIPTS -->
+</body>
+</html>

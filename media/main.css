@@ -1,0 +1,283 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--vscode-font-family);
+    background: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+    line-height: 1.6;
+}
+
+/* Layout */
+.chat-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Message bubbles */
+/* Prevent content from being squished */
+.message {
+    padding: 12px 16px;
+    border-radius: 6px;
+    max-width: 85%;
+    line-height: 1.6;
+}
+
+/* Ensure lists are properly indented and spaced */
+.message li + li {
+    margin-top: 4px;
+}
+
+/* Style numbered lists */
+.message ol {
+    list-style-type: decimal;
+}
+
+/* Style bullet lists */
+.message ul {
+    list-style-type: disc;
+}
+.message.system {
+    color: var(--vscode-foreground);
+    align-self: stretch;
+    max-width: 100%;
+    margin: 8px 0;
+    border-left: 4px solid var(--vscode-textLink-activeForeground);
+}
+
+.message.user {
+    color: var(--vscode-button-foreground);
+    align-self: flex-end;
+}
+
+.message.bot {
+    color: var(--vscode-editor-foreground);
+    align-self: flex-start;
+}
+
+/* Code blocks */
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--vscode-editor-lineHighlightBackground);
+    border-bottom: 1px solid var(--vscode-editor-lineHighlightBorder);
+}
+
+.language-label {
+    color: var(--vscode-foreground);
+    font-size: 12px;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.copy-button {
+    padding: 4px 8px;
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.2s;
+}
+
+.copy-button:hover {
+    background: var(--vscode-button-hoverBackground);
+}
+
+pre {
+    margin: 0;
+    padding: 16px;
+    overflow-x: auto;
+    font-family: var(--vscode-editor-font-family);
+    font-size: 13px;
+    line-height: 1.5;
+    background: transparent;
+}
+
+code {
+    font-family: var(--vscode-editor-font-family);
+    color: var(--vscode-editor-foreground);
+    background: transparent;
+}
+
+
+/* Message bot specific code styling */
+.message.bot .code-block,
+.message.bot pre,
+.message.bot code {
+    background: transparent !important;
+}
+
+/* System message code blocks */
+.message.system .code-block {
+    border: none;
+    background: transparent !important;
+}
+
+.message.system pre,
+.message.system code {
+    background: transparent !important;
+}
+
+.language-label {
+    color: var(--vscode-foreground);
+    font-size: 12px;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+
+.code-block {
+    margin: 12px 0;
+    border: 1px solid var(--vscode-editor-lineHighlightBorder);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 16px;
+    background: transparent;
+    overflow-x: auto;
+}
+
+.code-block code {
+    font-family: var(--vscode-editor-font-family);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--vscode-editor-foreground);
+    white-space: pre;
+}
+
+/* Ensure no paragraph wrapping inside code blocks */
+.code-block p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Inline code */
+p code {
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+/* System message code blocks */
+.message.system .code-block {
+    border: none;
+}
+
+.message.system .code-header {
+    border-bottom: none;
+    padding: 8px 0;
+}
+
+
+/* Message content styling */
+.message p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.message ul, .message ol {
+    margin: 8px 0;
+    padding-left: 24px;
+}
+
+.message li {
+    margin: 4px 0;
+    line-height: 1.6;
+}
+
+.message h1, .message h2, .message h3, .message h4 {
+    margin: 16px 0 8px 0;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+
+.message strong {
+    font-weight: 600;
+}
+
+.message em {
+    font-style: italic;
+}
+
+
+.message h1 { font-size: 1.4em; }
+.message h2 { font-size: 1.3em; }
+.message h3 { font-size: 1.2em; }
+.message h4 { font-size: 1.1em; }
+
+/* Ensure proper spacing between different content types */
+.message > *:first-child {
+    margin-top: 0;
+}
+
+.message > *:last-child {
+    margin-bottom: 0;
+}
+
+
+.message ul, .message ol {
+    margin: 8px 0;
+    padding-left: 24px;
+}
+
+/* Input area */
+.input-container {
+    padding: 16px;
+    border-top: 1px solid var(--vscode-panel-border);
+}
+
+.input-box {
+    display: flex;
+    gap: 8px;
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    color: black;
+    outline: none;
+    font-size: 14px;
+    padding: 0px 6px;
+}
+
+.send-button {
+    padding: 6px 12px;
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Thinking state */
+.thinking {
+    padding: 12px;
+    border-left: 4px solid var(--vscode-textLink-activeForeground);
+    color: var(--vscode-textPreformat-foreground);
+    font-style: italic;
+    margin: 8px 0;
+}
