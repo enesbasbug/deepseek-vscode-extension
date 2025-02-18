@@ -61,6 +61,12 @@ function copyCodeBlock(button) {
 
 // Updated formatSelectedText function
 function formatSelectedText(text) {
+    console.log("Selected text in formatSelectedText: ", text);
+    // If text is undefined, null, empty string, or just whitespace, return null
+    if (!text || text.trim().length === 0) {
+        return null;
+    }
+
     if ((text.startsWith('"') && text.endsWith('"')) ||
         (text.startsWith("'") && text.endsWith("'"))) {
         text = text.substring(1, text.length - 1);
@@ -133,11 +139,32 @@ function ChatApp() {
 
     React.useEffect(function() {
         const highlightedContent = `${highlightedText}`;
-        if (highlightedContent) {
-            setMessages([{
-                role: 'system',
-                content: formatSelectedText(highlightedContent)
-            }]);
+        
+        // If there's no content, initialize empty
+        if (!highlightedContent) {
+            setMessages([]);
+            return;
+        }
+    
+        try {
+            // Decode the base64 content
+            const decodedContent = atob(highlightedContent);
+            
+            // Only proceed if we have actual content
+            if (decodedContent.trim().length > 0) {
+                const formattedText = formatSelectedText(decodedContent);
+                if (formattedText) {
+                    setMessages([{
+                        role: 'system',
+                        content: formattedText
+                    }]);
+                }
+            } else {
+                setMessages([]);
+            }
+        } catch (e) {
+            // If decoding fails (no base64 content), just set empty messages
+            setMessages([]);
         }
     }, []);
 

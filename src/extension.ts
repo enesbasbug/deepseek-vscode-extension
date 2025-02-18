@@ -41,7 +41,9 @@ export function activate(context: vscode.ExtensionContext) {
                 .replace(/\${webview\.cspSource}/g, panel.webview.cspSource)
                 .replace('<!-- STYLES -->', `<style>${cssContent}</style>`)
                 .replace('<!-- SCRIPTS -->', `<script nonce="${nonce}">${jsContent}</script>`)
-                .replace('${highlightedText}', JSON.stringify(highlightedText || ''));
+                .replace('${highlightedText}', highlightedText ? 
+                    Buffer.from(highlightedText).toString('base64') : 
+                    '');
 
             panel.webview.html = webviewContent;
 

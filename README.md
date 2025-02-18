@@ -2,6 +2,8 @@
 
 An AI-powered coding assistant for Visual Studio Code that integrates with Ollama locally. Ask coding questions, get syntax-highlighted answers, and improve your workflow without leaving VS Code!
 
+!["image"](./demo-screenshot/ss1.png)
+
 ## Table of Contents
 - [Prerequisites](#prerequisites)
   - [Install Ollama](#install-ollama)
@@ -14,7 +16,6 @@ An AI-powered coding assistant for Visual Studio Code that integrates with Ollam
 - [Contributing](#contributing)
 - [Development](#development)
 - [Release Notes](#release-notes)
-- [License](#license)
 - [Additional Notes](#additional-notes)
 
 ## Prerequisites
@@ -145,10 +146,6 @@ If you want to develop or debug the extension locally:
 ### 0.0.1
 - Initial release with WebView-based chat panel
 - Keyboard shortcut (`Cmd + E` / `Ctrl + E`) for quick access
-
-## License
-
-This project is licensed under the MIT License.
 
 ## Additional Notes
 
