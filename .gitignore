@@ -8,7 +8,6 @@ yarn-error.log
 # Build outputs
 out/
 dist/
-*.vsix
 
 # IDE - VSCode
 .vscode/*
