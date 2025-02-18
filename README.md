@@ -126,7 +126,7 @@ If you want to develop or debug the extension locally:
 
 1. Clone the repo and install dependencies:
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/deepseek-vscode-extension.git
+   git clone https://github.com/enesbasbug/deepseek-vscode-extension.git
    cd deepseek-vscode-extension
    npm install
    ```
